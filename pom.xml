@@ -1,0 +1,332 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>xyz.ioc</groupId>
+	<artifactId>zeus</artifactId>
+	<packaging>war</packaging>
+	<version>0.3</version>
+	<name>zeus</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<gson.version>2.8.2</gson.version>
+		<junit.version>3.8.1</junit.version>
+        <log4j.version>1.2.16</log4j.version>
+        <slf4j.version>1.7.25</slf4j.version>
+		<jetty.version>9.2.11.v20150529</jetty.version>
+		<spring.version>5.2.3.RELEASE</spring.version>
+		<plivo.version>4.4.0</plivo.version>
+		<mysql.version>8.0.18</mysql.version>
+		<sitemesh.version>2.4.2</sitemesh.version>
+		<commons.io.version>2.4</commons.io.version>
+		<commons.fileupload.version>1.3.3</commons.fileupload.version>
+		<commons.validator.version>1.5.1</commons.validator.version>
+		<commons.lang.version>3.6</commons.lang.version>
+		<jstl.version>1.2</jstl.version>
+		<servlet.api.version>4.0.1</servlet.api.version>
+		<jsp.api.version>2.0</jsp.api.version>
+		<stripe.version>13.1.0</stripe.version>
+		<shiro.version>1.5.0</shiro.version>
+		<dbh2.version>1.2.141</dbh2.version>
+		<hsqldb.version>2.4.1</hsqldb.version>
+		<mail.version>1.4.7</mail.version>
+		<pretty.time.version>4.0.1.Final</pretty.time.version>
+	    <maven.compiler.source>1.8</maven.compiler.source>
+	    <maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		
+		<dependency>
+	    	<groupId>junit</groupId>
+	    	<artifactId>junit</artifactId>
+	    	<version>${junit.version}</version>
+	    	<scope>test</scope>
+	  	</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>${mail.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.stripe</groupId>
+			<artifactId>stripe-java</artifactId>
+			<version>${stripe.version}</version>
+		</dependency>
+
+		<!--<dependency>-->
+			<!--<groupId>javax.servlet</groupId>-->
+			<!--<artifactId>servlet-api</artifactId>-->
+			<!--<version>${servlet.api.version}</version>-->
+		<!--</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${jsp.api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+
+        <dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>sitemesh</artifactId>
+			<version>${sitemesh.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commons.fileupload.version}</version>
+		</dependency>
+	 
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons.io.version}</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>commons-validator</groupId>
+		    <artifactId>commons-validator</artifactId>
+		    <version>${commons.validator.version}</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>${commons.lang.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+
+	    <dependency>
+	       <groupId>org.apache.shiro</groupId>
+	       <artifactId>shiro-spring</artifactId>
+	       <version>${shiro.version}</version>
+	     </dependency>
+	     
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+                
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-aspects</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-messaging</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+    
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${dbh2.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>${hsqldb.version}</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjrt</artifactId>
+		    <version>1.6.11</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.6.12</version>
+		</dependency>    
+		
+		<dependency>
+		    <groupId>cglib</groupId>
+		    <artifactId>cglib</artifactId>
+		    <version>2.2.2</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>${gson.version}</version>
+		</dependency>
+
+		<dependency> 
+			<groupId>org.ocpsoft.prettytime</groupId>  
+			<artifactId>prettytime</artifactId>  
+			<version>${pretty.time.version}</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.tika</groupId>
+		    <artifactId>tika-core</artifactId>
+		    <version>1.22</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.tika</groupId>
+		    <artifactId>tika-parsers</artifactId>
+		    <version>1.22</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.drewnoakes</groupId>
+			<artifactId>metadata-extractor</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.imgscalr</groupId>
+			<artifactId>imgscalr-lib</artifactId>
+			<version>4.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.plivo</groupId>
+			<artifactId>plivo-java</artifactId>
+			<version>${plivo.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thetransactioncompany</groupId>
+			<artifactId>cors-filter</artifactId>
+			<version>1.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+		<!--
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-imaging</artifactId>
+			<version>1.0-alpha2-SNAPSHOT</version>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>io.github.mcroteau</groupId>
+			<artifactId>parakeet</artifactId>
+			<version>0.1</version>
+		</dependency>
+
+
+
+	</dependencies>
+	
+	
+    <build>
+
+        <defaultGoal>package</defaultGoal>
+
+        <directory>output</directory>
+        <outputDirectory>output/classes</outputDirectory>
+
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <testOutputDirectory>output/test-classes</testOutputDirectory>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>log4j.properties</include>
+                    <include>application.properties</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources/db</directory>
+                <includes>
+                    <include>create-db.sql</include>
+                </includes>
+            </resource>
+        </resources>
+
+
+
+        <plugins>
+
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.20.v20190813</version>
+
+        	    <configuration>
+					<webApp>
+        	            <contextPath>/b</contextPath>
+        	        </webApp>
+        	    </configuration>
+        	</plugin>
+        </plugins>
+    </build>
+  	
+</project>

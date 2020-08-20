@@ -1,0 +1,39 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+        http://www.springframework.org/schema/jdbc     
+        http://www.springframework.org/schema/jdbc/spring-jdbc-4.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+	<context:annotation-config/>
+	<context:component-scan base-package="xyz.ioc" />
+
+	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:application.properties</value>
+			</list>
+		</property>
+	</bean>  
+
+	
+	<bean id="utilities" class="xyz.ioc.common.Utilities"/>
+	<bean id="emailService" class="xyz.ioc.service.EmailService"/>
+	<bean id="phoneService" class="xyz.ioc.service.PhoneService"/>
+	<bean id="stripeService" class="xyz.ioc.service.StripeService"/>
+	<bean id="applicationStartup" class="xyz.ioc.startup.AppInitializer"/>
+	<bean id="sessionManager" class="xyz.ioc.common.SessionManager" scope="singleton"/>
+
+	<bean id="zeusAccessor" class="xyz.ioc.accessor.ZeusAccessor"/>
+
+	<bean id="parakeet" class="io.github.mcroteau.Parakeet" scope="singleton">
+		<constructor-arg name="accessor" ref="zeusAccessor"/>
+	</bean>
+
+</beans>

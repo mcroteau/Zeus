@@ -1,0 +1,37 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+        http://www.springframework.org/schema/jdbc     
+        http://www.springframework.org/schema/jdbc/spring-jdbc-4.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+ 	
+	<bean id="roleDao" class="xyz.ioc.dao.impl.jdbc.RoleDaoJdbc"/>
+	<bean id="accountDao" class="xyz.ioc.dao.impl.jdbc.AccountDaoJdbc"/>
+	<bean id="postDao" class="xyz.ioc.dao.impl.jdbc.PostDaoJdbc"/>
+	<bean id="connectionDao" class="xyz.ioc.dao.impl.jdbc.FriendDaoJdbc"/>
+	<bean id="musicDao" class="xyz.ioc.dao.impl.jdbc.MusicDaoJdbc"/>
+	<bean id="notificationDao" class="xyz.ioc.dao.impl.jdbc.NotificationDaoJdbc"/>
+	<bean id="resourceDao" class="xyz.ioc.dao.impl.jdbc.ResourceDaoJdbc"/>
+	<bean id="messageDao" class="xyz.ioc.dao.impl.jdbc.MessageDaoJdbc"/>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg ref="dataSource"/>
+	</bean>
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://${db.host}:3306/${db.database}"/>
+		<property name="username" value="${db.username}"/>
+		<property name="password" value="${db.password}"/>
+	</bean>
+
+</beans>
