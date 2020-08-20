@@ -11,7 +11,7 @@ This project is free to download. [![license](https://img.shields.io/github/lice
 * Download & install Maven
 * Download & install Java JDK 8+
 * cd into `Zeus`
-* cp `src/main/resource/application.properties.example -> src/main/resources/application.properties`
+* cp `src/main/resources/application.properties.example -> src/main/resources/application.properties`
 * run `mvn jetty:run`
 * browse `http://localhost:8080/b`
 
