@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 import io.github.mcroteau.Parakeet;
+import xyz.ioc.model.Account;
 
 
 public class AppInterceptor implements HandlerInterceptor {
@@ -60,12 +61,12 @@ public class AppInterceptor implements HandlerInterceptor {
                                 HttpServletResponse resp, Object handler, Exception ex)
             throws Exception {
 
-//        if(parakeet.isAuthenticated()){
-//            String user = parakeet.getUser();
-//            Account sessionAaccount = accountDao.findByUsername(user);
-//            req.getSession().setAttribute("account", sessionAaccount);
-//            req.getSession().setAttribute("imageUri", sessionAaccount.getImageUri());
-//        }
+        if(parakeet.isAuthenticated()){
+            String user = parakeet.getUser();
+            Account sessionAaccount = accountDao.findByUsername(user);
+            req.getSession().setAttribute("account", sessionAaccount);
+            req.getSession().setAttribute("imageUri", sessionAaccount.getImageUri());
+        }
     }
 
 }

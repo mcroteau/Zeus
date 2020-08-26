@@ -37,7 +37,7 @@
 
     </form>
 
-    <p style="line-height:1.4em;">Want to see Zeus in action? You can view as a guest and start sharing!.
+    <p style="margin-top:30px;">Want to see Zeus in action? You can view as a guest and start sharing!.
 
     <a href="${pageContext.request.contextPath}/account/guest" class="href-dotted-zeus">Go here!</a></p>
 

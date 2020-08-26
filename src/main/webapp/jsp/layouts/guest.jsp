@@ -144,7 +144,7 @@
                     <a href="${pageContext.request.contextPath}/account/edit/${sessionScope.account.id}" class="href-dotted">Edit Profile<a>
 
                 <%}else{%>
-                    <a href="${pageContext.request.contextPath}/signin?uri=${uri}" class="href-dotted">Signin</a>
+                    <a href="${pageContext.request.contextPath}/?uri=${uri}" class="href-dotted">Signin</a>
                     &nbsp;
                     <a href="${pageContext.request.contextPath}/signup?uri=${uri}" class="href-dotted">Signup!</a>
                 <%}%>

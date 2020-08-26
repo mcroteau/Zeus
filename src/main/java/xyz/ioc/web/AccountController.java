@@ -95,7 +95,7 @@ public class AccountController extends BaseController {
 
 		if(!administrator()){
 			redirect.addFlashAttribute("error", "You are not administrator.");
-			return "redirect:/signin";
+			return "redirect:/";
 		}
 
 		if(page == null){
@@ -320,12 +320,13 @@ public class AccountController extends BaseController {
 	public String signup(HttpServletRequest request, ModelMap model, @RequestParam(value="uri", required = false ) String uri, @ModelAttribute("account") Account account){
 		parakeet.logout();
     	model.addAttribute("uri", uri);
-		return "signup.jsp";
+		return "account/signup";
 	}
 	
 
 	@RequestMapping(value="/register", method=RequestMethod.POST)
-	protected String register(@ModelAttribute("account") Account account,
+	protected String register(HttpServletRequest req,
+							@ModelAttribute("account") Account account,
 							  @RequestParam(value="uri", required = false ) String uri,
 							  RedirectAttributes redirect){
 
@@ -350,16 +351,17 @@ public class AccountController extends BaseController {
 		
 		if(account.getPassword().equals("")) {
 			redirect.addFlashAttribute("account", account);
-			redirect.addFlashAttribute("error", "Passwords cannot be blank and must match.");
+			redirect.addFlashAttribute("error", "Password cannot be blank");
 			return "redirect:/signup?uri=" + uri;
 		}
 
 		if(account.getPassword().length() < 7){
 			redirect.addFlashAttribute("account", account);
-			redirect.addFlashAttribute("error", "Passwords must be at least 7 characters long.");
+			redirect.addFlashAttribute("error", "Password must be at least 7 characters long.");
 			return "redirect:/signup?uri=" + uri;
 		}
 
+		String password = account.getPassword();
 		String passwordHashed = utilities.hash(account.getPassword());
 
         try{
@@ -390,8 +392,17 @@ public class AccountController extends BaseController {
         }
 
 
-		redirect.addFlashAttribute("message", "Thank you for registering. Enjoy");
-		return "redirect:/signin?uri=" + uri;
+        if(parakeet.login(account.getUsername(), password)) {
+
+			req.getSession().setAttribute("account", account);
+			req.getSession().setAttribute("imageUri", account.getImageUri());
+
+			return "redirect:/?uri=" + uri;
+
+		}else{
+			redirect.addFlashAttribute("message", "Thank you for registering. Enjoy");
+			return "redirect:/?uri=" + uri;
+		}
 	}
 
 	

@@ -19,7 +19,7 @@
     }
 </style>
 
-<div id="registration-form-container">
+<div id="registration-form-container" style="padding-top:20px;">
 
     <c:if test="${not empty message}">
         <div class="notify alert-info">${message}</div>
@@ -52,7 +52,7 @@
     <div style="margin-top:41px;text-align:right">
         <input type="submit" class="button zeus" id="signup-button" value="Signup!" style="width:100%;"/>
 
-        <p style="text-align: left; margin-top:30px;">Already one of God's children?</p>
+        <p style="text-align: left; margin-top:30px;">Already one of God's delicate flowers?</p>
 
         <a href="${pageContext.request.contextPath}/" type="submit" class="button retro" id="signin-button">Signin!</a>
     </div>

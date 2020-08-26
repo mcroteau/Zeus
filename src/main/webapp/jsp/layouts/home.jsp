@@ -22,7 +22,7 @@
         body{
             /**background-image:url("/b/images/zeus-home.jpg");**/
             background-position:0px 0px;
-            background-color:#f9f9f9;
+            background-color:#fcfcfc;
             background-position:0px 0px;
         }
 
@@ -36,7 +36,7 @@
             width:300px;
             padding:0px 30px 30px 30px;
             margin-right:49px;
-            margin-top:24px;
+            margin-top:14px;
             text-align:left;
             background:rgba(67, 167, 251, 1);
             background: linear-gradient(-31deg, rgba(67,136,251,1) 0%, rgba(67,179,251,1) 100%);
@@ -156,63 +156,71 @@
         }
 
         #zeus{
-            width:170px;
+            width:59px;
         }
     </style>
 
+    <div class="zeus" style="height:3px;position: absolute;z-index:-1;top:0px;left:0px;right:0px;"></div>
+
     <div id="guest-content-container">
 
-        <div id="guest-content-left" style="padding:50px 50px; width:52%;">
-<%--            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 134" id="zeus">--%>
-<%--                <path d="M49 1L21 88L57 88L42 134L84 134L113 47L92 47L79 47L75 47L91 1L49 1Z" />--%>
-<%--            </svg>--%>
-            <img src="/b/icons/Assets.xcassets/AppIcon.appiconset/180.png">
+        <div id="guest-content-left" style="padding:23px 50px; width:52%;">
+            <span style="display:inline-block;background:#FDFE03;border:solid 1px #efefef; padding:53px;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 134" id="zeus">
+                    <path d="M49 1L21 88L57 88L42 134L84 134L113 47L92 47L79 47L75 47L91 1L49 1Z" />
+                </svg>
+            </span>
+<%--            <img src="/b/icons/Assets.xcassets/AppIcon.appiconset/180.png" style="border:solid 1px #fff;">--%>
             <p style="font-weight: normal; font-size:32px;font-family:Georgia !important;">Like. Share. Obey!</p>
 
     <p style="font-family:Roboto-Light;">How much is Facebook Worth? <strong>$527 billion!</strong> While I am a fan
-    of Harvard and the talent that it produces, there is a difinitive pipeline of success.</p>
+    of Harvard and the talent that it produces, there is a definitive pipeline of success.</p>
 
             <p>My name is Mike Croteau, and this is my promise as the sole developer
-                of Zeus, <strong>89% of what Zeus makes will go towards children without homes,
+                of Zeus, <strong>89% of what Zeus earns will go towards children without homes,
                     and military veterans.</strong> Currently I am only accepting donations
-                on Patreon.</p>
+                on <a href="https://www.patreon.com/user?u=35004351" class="href-dotted" target="_blank">Patreon.</a></p>
 
             <p>Here is what you get as a member of Zeus, a promise that I will not sell your data,
                 a promise of 100% transparency as I offer the code for Free. You can view the source
-                code anytime by browsing to <a href="https://github.com/mcroteau/Zeus" class="href-dotted">https://github.com/mcroteau/Zeus</a></p>
+                code anytime by browsing to <a href="https://github.com/mcroteau/Zeus" class="href-dotted" target="_blank">https://github.com/mcroteau/Zeus</a></p>
 
             <p>Why should there be one group to reign social media, when there is <strong>Zeus!</strong></p>
 
         </div>
 
-        <div id="guest-content-right">
+        <%
+            BeanLookup beanLookup = new BeanLookup();
+            Parakeet parakeet = (Parakeet) beanLookup.get("parakeet");
+        %>
 
-            <div style="text-align:center;margin-bottom:29px;">
+        <% if(!parakeet.isAuthenticated()){%>
 
-                <%
-                    BeanLookup beanLookup = new BeanLookup();
-                    Parakeet parakeet = (Parakeet) beanLookup.get("parakeet");
-                %>
-
-                <% if(parakeet.isAuthenticated()){%>
-
-                    Welcome <strong>${sessionScope.account.nameUsername}</strong>!
-                    &nbsp;|&nbsp;
-                    <a href="${pageContext.request.contextPath}/signout" class="href-dotted-zeus">Signout</a>
-                    <br/>
-                    <br/>
-                    <a href="${pageContext.request.contextPath}/" class="href-dotted-zeus">Home<a>&nbsp;|&nbsp;
-                    <a href="${pageContext.request.contextPath}/account/edit/${sessionScope.account.id}" class="href-dotted-cau">Edit Profile<a>
-
-                <%}%>
+            <div id="guest-content-right">
+                <decorator:body />
             </div>
 
-            <decorator:body />
-        </div>
+        <%}%>
+
+        <% if(parakeet.isAuthenticated()){%>
+            <div style="float:right;margin:30px 30px 0px 0px;">
+                Welcome back <strong>${sessionScope.account.nameUsername}</strong> my child!
+                &nbsp;|&nbsp;
+                <a href="${pageContext.request.contextPath}/signout" class="href-dotted-zeus">Signout</a>
+                <br/>
+                <br/>
+                <a href="${pageContext.request.contextPath}/" class="href-dotted-zeus">Home<a>&nbsp;|&nbsp;
+                    <a href="${pageContext.request.contextPath}/account/edit/${sessionScope.account.id}" class="href-dotted-zeus">Edit Profile<a>
+            </div>
+
+        <%}%>
 
         <br class="clear"/>
     </div>
 
+    <div style="margin-bottom:167px;"></div>
+
+<%--    <div style="background:#1b1b1b;height:130px;"></div>--%>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40862316-16"></script>
     <script>
