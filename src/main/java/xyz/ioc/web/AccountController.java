@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.ModelMap;
 import java.net.URLEncoder;
@@ -319,8 +318,9 @@ public class AccountController extends BaseController {
 	
 	@RequestMapping(value="/signup", method=RequestMethod.GET)
 	public String signup(HttpServletRequest request, ModelMap model, @RequestParam(value="uri", required = false ) String uri, @ModelAttribute("account") Account account){
-		model.addAttribute("uri", uri);
-		return "account/signup";
+		parakeet.logout();
+    	model.addAttribute("uri", uri);
+		return "signup.jsp";
 	}
 	
 

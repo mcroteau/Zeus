@@ -14,6 +14,7 @@ import xyz.ioc.service.PhoneService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 
 @Controller
@@ -45,6 +46,8 @@ public class StaticController extends BaseController {
 		if(account.isDisabled()) {
 			return "redirect:/account/edit/" + account.getId();
 		}
+
+		req.getSession().removeAttribute("message");
 
 		return "portal";
 	}

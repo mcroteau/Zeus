@@ -30,38 +30,31 @@
     </c:if>
 
 
-
-    
-
     <form action="${pageContext.request.contextPath}/register" modelAttribute="account" method="post" enctype="multipart/form-data" autocomplete="false" class="pure-form pure-form-stacked" id="registration-form">
         <fieldset>
 
-            <p class="thin" style="line-height:1.3em;">Why should there be one group to reign social media, when there is 
-<!--                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 134" id="zeus">
-                    <path d="M49 1L21 88L57 88L42 134L84 134L113 47L92 47L79 47L75 47L91 1L49 1Z" />
-                </svg>-->
-                <span style="font-family:Roboto-Bold !important; line-height:1.3em;margin:20px auto;">Zeus. </span>
-                
-            </p>
+            <h2 style="font-family:Roboto-Bold !important;font-size:23px;">Signup!</h2>
 
-            <span style="font-family:Roboto-Bold !important;font-size:23px;">Signup</span>
-
-            <p style="line-height:1.3em">Start sharing with friends.</p>
+            <p style="background:#f9f9f9">Start sharing with God's children!</p>
 
             <input type="hidden" name="uri" value="${uri}"/>
 
-            <input id="name" type="text" placeholder="Name" name="name">
+            <input id="name" type="text" placeholder="Name" name="name" style="width:100%">
 
             <input id="username" type="email" placeholder="Email Address" name="username" style="width:100%;">
 
-            <input id="password" type="password" placeholder="Password &#9679;&#9679;&#9679;" name="password">
+            <input id="password" type="password" placeholder="Password &#9679;&#9679;&#9679;" name="password" style="width:100%">
 
         </fieldset>
     </form>
 
 
     <div style="margin-top:41px;text-align:right">
-        <input type="submit" class="button retro" id="signup-button" value="Signup" style="width:100%;"/>
+        <input type="submit" class="button zeus" id="signup-button" value="Signup!" style="width:100%;"/>
+
+        <p style="text-align: left; margin-top:30px;">Already one of God's children?</p>
+
+        <a href="${pageContext.request.contextPath}/" type="submit" class="button retro" id="signin-button">Signin!</a>
     </div>
 
 </div>

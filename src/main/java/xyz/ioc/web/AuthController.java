@@ -29,19 +29,11 @@ public class AuthController extends BaseController {
 
     private Gson gson = new Gson();
 
-
 	@Autowired
 	private Parakeet parakeet;
 
 	@Autowired
 	private AccountDao accountDao;
-
-
-	@RequestMapping(value="/signin", method=RequestMethod.GET)
-	public String signin(ModelMap model, @RequestParam(value="uri", required = false ) String uri){
-		if(uri != null && !uri.equals(""))model.addAttribute("uri", uri);
-		return "authentication/signin";
-	}
 
 
 	@RequestMapping(value="/authenticate", method=RequestMethod.POST)
@@ -53,15 +45,10 @@ public class AuthController extends BaseController {
 
 		try{
 
-//			UsernamePasswordToken upt = new UsernamePasswordToken(account.getUsername(), account.getPassword());
-//
-//			Subject subject = Resource.getSubject();
-//			upt.setRememberMe(true);
-//			subject.login(upt);
 
 			if(!parakeet.login(account.getUsername(), account.getPassword())){
-				redirect.addFlashAttribute("error", "Wrong username and password...");
-				return "redirect:/signin";
+				request.getSession().setAttribute("message", "Wrong username and password");
+				return "redirect:/";
 			}
 
 			Account sessionAccount = accountDao.findByUsername(account.getUsername());
@@ -69,6 +56,7 @@ public class AuthController extends BaseController {
 			request.getSession().setAttribute("account", sessionAccount);
 			request.getSession().setAttribute("imageUri", sessionAccount.getImageUri());
 
+			request.getSession().removeAttribute("message");
 
 			if(uri != null &&
 					!uri.equals("")) {
@@ -80,10 +68,11 @@ public class AuthController extends BaseController {
 
 		} catch ( Exception e ) { 
 			e.printStackTrace();
-		} 
+		}
 
-		redirect.addFlashAttribute("error", "Wrong username and password");
-		return "redirect:/signin";
+		request.getSession().setAttribute("message", "Wrong username and password");
+		log.info("redirect to base");
+		return "redirect:/";
 	
 	}	
 

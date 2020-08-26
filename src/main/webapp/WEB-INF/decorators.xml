@@ -5,13 +5,11 @@
     </decorator>
     <decorator name="home" page="home.jsp">
         <pattern>*/uno</pattern>
-    </decorator>
-    <decorator name="signup" page="signup.jsp">
         <pattern>*/signup</pattern>
+        <pattern>*/registration</pattern>
     </decorator>
     <decorator name="guest" page="guest.jsp">
         <pattern>*/signin</pattern>
-        <pattern>*/registration</pattern>
         <pattern>*/account/edit*</pattern>
         <pattern>*/account/reset*</pattern>
         <pattern>*/account/send_reset*</pattern>

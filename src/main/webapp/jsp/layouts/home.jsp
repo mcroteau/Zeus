@@ -20,24 +20,27 @@
 
     <style type="text/css">
         body{
-            background-image:url("/b/images/zeus-home.jpg");
+            /**background-image:url("/b/images/zeus-home.jpg");**/
             background-position:0px 0px;
-            background-color:#fff;
+            background-color:#f9f9f9;
             background-position:0px 0px;
+        }
+
+        #guest-content-left{
+            float:left;
         }
 
         #guest-content-right{
             float:right;
-            color:#fff !important;
+            color:#2b2b34 !important;
             width:300px;
-            padding:30px;
+            padding:0px 30px 30px 30px;
             margin-right:49px;
             margin-top:24px;
             text-align:left;
-            background:rgba(0,0,0, 0.97);
             background:rgba(67, 167, 251, 1);
             background: linear-gradient(-31deg, rgba(67,136,251,1) 0%, rgba(67,179,251,1) 100%);
-            background:rgba(0,0,0, 0.97);
+            background:rgba(255,255,255, 1);
 
             border-radius: 7px !important;
             -moz-border-radius: 7px !important;
@@ -50,7 +53,7 @@
 
         #guest-content-right p,
         #guest-content-right h2{
-            color:#fff;
+            color:#2b2b34;
         }
 
         #guest-content-right .light{
@@ -127,8 +130,10 @@
             text-align:center;
         }
         p{
+            line-height:1.4em;
             font-family:Roboto !important;
         }
+
         a{
             font-family:Roboto !important;
         }
@@ -149,11 +154,36 @@
                 display:none;
             }
         }
+
+        #zeus{
+            width:170px;
+        }
     </style>
 
     <div id="guest-content-container">
 
+        <div id="guest-content-left" style="padding:50px 50px; width:52%;">
+<%--            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 134" id="zeus">--%>
+<%--                <path d="M49 1L21 88L57 88L42 134L84 134L113 47L92 47L79 47L75 47L91 1L49 1Z" />--%>
+<%--            </svg>--%>
+            <img src="/b/icons/Assets.xcassets/AppIcon.appiconset/180.png">
+            <p style="font-weight: normal; font-size:32px;font-family:Georgia !important;">Like. Share. Obey!</p>
 
+    <p style="font-family:Roboto-Light;">How much is Facebook Worth? <strong>$527 billion!</strong> While I am a fan
+    of Harvard and the talent that it produces, there is a difinitive pipeline of success.</p>
+
+            <p>My name is Mike Croteau, and this is my promise as the sole developer
+                of Zeus, <strong>89% of what Zeus makes will go towards children without homes,
+                    and military veterans.</strong> Currently I am only accepting donations
+                on Patreon.</p>
+
+            <p>Here is what you get as a member of Zeus, a promise that I will not sell your data,
+                a promise of 100% transparency as I offer the code for Free. You can view the source
+                code anytime by browsing to <a href="https://github.com/mcroteau/Zeus" class="href-dotted">https://github.com/mcroteau/Zeus</a></p>
+
+            <p>Why should there be one group to reign social media, when there is <strong>Zeus!</strong></p>
+
+        </div>
 
         <div id="guest-content-right">
 
@@ -164,10 +194,7 @@
                     Parakeet parakeet = (Parakeet) beanLookup.get("parakeet");
                 %>
 
-                <%
-                    try{
-
-                    if(parakeet.isAuthenticated()){%>
+                <% if(parakeet.isAuthenticated()){%>
 
                     Welcome <strong>${sessionScope.account.nameUsername}</strong>!
                     &nbsp;|&nbsp;
@@ -177,14 +204,7 @@
                     <a href="${pageContext.request.contextPath}/" class="href-dotted-zeus">Home<a>&nbsp;|&nbsp;
                     <a href="${pageContext.request.contextPath}/account/edit/${sessionScope.account.id}" class="href-dotted-cau">Edit Profile<a>
 
-                <%}else{%>
-                    <a href="${pageContext.request.contextPath}/signin?uri=${uri}" class="href-dotted-zeus">Signin</a>&nbsp;
-                    <a href="${pageContext.request.contextPath}/signup?uri=${uri}" class="href-dotted-zeus">Signup!</a>
-                <%}
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
-                %>
+                <%}%>
             </div>
 
             <decorator:body />
