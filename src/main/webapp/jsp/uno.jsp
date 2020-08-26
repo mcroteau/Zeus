@@ -9,7 +9,7 @@
     </c:if>
 
 
-    <h2>Signin</h2>
+    <h2 style="margin-bottom:20px;">Signin</h2>
 
     <form action="${pageContext.request.contextPath}/authenticate" modelAttribute="signon" method="post" >
 

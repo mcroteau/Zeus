@@ -12,11 +12,7 @@
     .pure-form-stacked input[type="password"]{
         margin:0.35em 0;
     }
-    #zeus{
-        height:20px;
-        width:20px;
-        fill:#fff;
-    }
+
 </style>
 
 <div id="registration-form-container" style="padding-top:20px;">
@@ -33,10 +29,8 @@
     <form action="${pageContext.request.contextPath}/register" modelAttribute="account" method="post" enctype="multipart/form-data" autocomplete="false" class="pure-form pure-form-stacked" id="registration-form">
         <fieldset>
 
-            <h2 style="font-family:Roboto-Bold !important;font-size:23px;">Signup!</h2>
-
-            <p style="background:#f9f9f9">Start sharing with God's children!</p>
-
+            <h1 style="font-family:Roboto-Bold !important;font-size:23px;margin-bottom:20px;">Signup!</h1>
+            <p>Create your account and begin sharing with friends &amp; family.</p>
             <input type="hidden" name="uri" value="${uri}"/>
 
             <input id="name" type="text" placeholder="Name" name="name" style="width:100%">
@@ -52,7 +46,7 @@
     <div style="margin-top:41px;text-align:right">
         <input type="submit" class="button zeus" id="signup-button" value="Signup!" style="width:100%;"/>
 
-        <p style="text-align: left; margin-top:30px;">Already one of God's delicate flowers?</p>
+        <p style="text-align: left; margin-top:30px;">Are you already one of God's delicate flowers?</p>
 
         <a href="${pageContext.request.contextPath}/" type="submit" class="button retro" id="signin-button">Signin!</a>
     </div>

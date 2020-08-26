@@ -156,7 +156,7 @@
         }
 
         #zeus{
-            width:59px;
+            width:43px;
         }
     </style>
 
