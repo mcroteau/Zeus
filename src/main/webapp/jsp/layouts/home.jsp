@@ -165,7 +165,7 @@
     <div id="guest-content-container">
 
         <div id="guest-content-left" style="padding:23px 50px; width:52%;">
-            <span style="display:inline-block;background:#FDFE03;border:solid 1px #efefef; padding:53px;">
+            <span style="display:inline-block;background:#FDFE03; padding:53px;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 134" id="zeus">
                     <path d="M49 1L21 88L57 88L42 134L84 134L113 47L92 47L79 47L75 47L91 1L49 1Z" />
                 </svg>
