@@ -2,6 +2,7 @@ package xyz.ioc.web;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mobile.device.Device;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.ModelMap;
@@ -14,7 +15,6 @@ import xyz.ioc.service.PhoneService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Map;
 
 
 @Controller
@@ -33,10 +33,11 @@ public class StaticController extends BaseController {
 
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String portal(ModelMap model,
-						HttpServletRequest req,
-						HttpServletResponse resp,
-						final RedirectAttributes redirect){
+	public String portal(Device device,
+						 ModelMap model,
+						 HttpServletRequest req,
+						 HttpServletResponse resp,
+						 final RedirectAttributes redirect){
 
 		if(!authenticated()){
 			return "redirect:/uno";
@@ -49,7 +50,11 @@ public class StaticController extends BaseController {
 
 		req.getSession().removeAttribute("message");
 
-		return "portal";
+		if(device.isMobile()) {
+			return "mobile";
+		}else{
+			return "portal";
+		}
 	}
 
 

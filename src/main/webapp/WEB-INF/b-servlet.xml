@@ -21,11 +21,18 @@
 	<mvc:resources mapping="/media/**" location="/media/"/>
 	<mvc:resources mapping="/tmp_music/**" location="/tmp_music/"/>
 
+	<context:component-scan base-package="xyz.ioc.web"/>
+
 	<mvc:interceptors>
 		<bean id="appSessionInterceptor" class="xyz.ioc.interceptors.AppInterceptor"/>
+		<bean id="deviceResolverHandlerInterceptor" class="org.springframework.mobile.device.DeviceResolverHandlerInterceptor"/>
 	</mvc:interceptors>
 
-	<context:component-scan base-package="xyz.ioc.web"/>
+	<mvc:annotation-driven>
+		<mvc:argument-resolvers>
+			<bean id="deviceHandlerMethodArgumentResolver" class="org.springframework.mobile.device.DeviceHandlerMethodArgumentResolver"/>
+		</mvc:argument-resolvers>
+	</mvc:annotation-driven>
 
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="viewResolvers">
