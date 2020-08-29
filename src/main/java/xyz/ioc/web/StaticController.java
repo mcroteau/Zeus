@@ -51,9 +51,9 @@ public class StaticController extends BaseController {
 		req.getSession().removeAttribute("message");
 
 		if(device.isMobile()) {
-			return "portal_mobile";
-		}else{
 			return "redirect:/mobile";
+		}else{
+			return "portal";
 		}
 	}
 
