@@ -110,17 +110,17 @@
     }
     .post-button{
         right:2% !important;
-        bottom:54px;
+        bottom:18px;
         width:96%;
         border-radius:2px !important;
         -moz-border-radius:2px !important;
         -webkit-border-radius:2px !important;
     }
+    .post-button:active{
+        bottom:17px;
+    }
     #actions-container{
         margin-right:2%;
-    }
-    .post-button:active{
-        bottom:53px;
     }
     #news-feed{
         width:100%;
