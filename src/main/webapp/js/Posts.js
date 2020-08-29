@@ -9,7 +9,6 @@ var Posts = function(context){
         "Zeus, the father of the Olympic Gods, turned mid-day into night, hiding the light of the dazzling Sun;"
     ]
 
-
     var emptyHtml = '<div id="empty-feed"><p class="light" style="padding-right:70px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur... <br/><span class="yella">all of this means you need to share something!</span></p></div>'
 
     var voice = document.getElementById("voice"),

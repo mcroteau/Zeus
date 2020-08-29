@@ -41,7 +41,9 @@ var latestFeedTotal = document.getElementById("latest-feed-total")
 
 profileActionsHref.addEventListener("click", dispatchProfileActionsClickedEvent)
 
-messagesHref.addEventListener("click", openFriends)
+if(messagesHref != null) {
+    messagesHref.addEventListener("click", openFriends)
+}
 
 profileHref.addEventListener("click", function(){
     var id = profileHref.getAttribute("data-id")
@@ -107,11 +109,13 @@ document.getElementsByTagName("body")[0].addEventListener("click", function(even
         profileActionsDiv.style.display = "none"
     }
 
-    if(!element.classList.contains("chat-session-launcher")){
-        chatPopup.style.height = "37px"
-        chatPopup.style.overflow = "initial"
-        setChatLaunched(false)
-    }
+    try {
+        if (!element.classList.contains("chat-session-launcher")) {
+            chatPopup.style.height = "37px"
+            chatPopup.style.overflow = "initial"
+            setChatLaunched(false)
+        }
+    }catch(e){}
 
     posts.notificationsOuterDiv.setAttribute("data-opened", false)
     posts.notificationsOuterDiv.style.display = "none"
@@ -141,7 +145,9 @@ function startApplicationPolling(){
 }
 
 function updateGlobalNotificationsCount(data){
-    unreadMessages.innerHTML = data.messagesCount;
+    if(unreadMessages != null) {
+        unreadMessages.innerHTML = data.messagesCount;
+    }
     invitesCount.innerHTML = data.invitationsCount;
     baseNotificationsCount.innerHTML = data.invitationsCount + data.messagesCount
     if(data.invitationsCount > 0 || data.messagesCount > 0){

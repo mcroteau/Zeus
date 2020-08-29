@@ -208,8 +208,8 @@ not show up in search results for them</p>
             <br class="clear"/>
 
             <div class="profile-stat">
-                <h2 id="profile-stat-uno"></h2>
-                <span class="information">All Time</span>
+                <h2 id="profile-stat-tres"></h2>
+                <span class="information">Previous Week</span>
                 <span class="information">Visits</span>
             </div>
 
@@ -220,10 +220,11 @@ not show up in search results for them</p>
             </div>
 
             <div class="profile-stat">
-                <h2 id="profile-stat-tres"></h2>
-                <span class="information">Previous Week</span>
+                <h2 id="profile-stat-uno"></h2>
+                <span class="information">All Time</span>
                 <span class="information">Visits</span>
             </div>
+
 
             <br class="clear"/>
 

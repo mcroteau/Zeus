@@ -66,8 +66,8 @@
     font-size:11px;
 }
 #profile-posts-container{
-    float:right;
-    width:461px;
+    float:none;
+    width:100%;
 }
 #profile-profile-image{
     padding: 5px;
@@ -115,7 +115,7 @@ h2.yella{
         <div id="profile-posts"></div>
     </div>
 
-    <div id="profile-left-container">
+    <div id="profile-friends-mobile-container">
 
         <div id="profile-friends-outer-container" style="display:none">
             <h2 class="gray no-border yella">Friends</h2>
@@ -135,23 +135,9 @@ he/she will not be able to see your profile and you will <br/>
 not show up in search results for them</p>
 
 <script type="text/template" id="profile-template">
-    {{^isOwnersAccount}}
-    <div id="profile-actions-container">
 
-        {{#isFriend}}
-            <a href="javascript:" class="button sky small" data-id="{{id}}" data-action="remove" id="profile-friend-button">Unfriend</a>
-        {{/isFriend}}
-        {{^isFriend}}
-            <a href="javascript:" class="button retro small" data-id="{{id}}" data-action="invite" id="profile-friend-button">Send Friend Request</a>
-        {{/isFriend}}
+<%--    <img src="${pageContext.request.contextPath}/{{imageUri}}" id="profile-profile-image"/>--%>
 
-        <br class="clear"/>
-    </div>
-    {{/isOwnersAccount}}
-
-    <br class="clear"/>
-
-    <img src="${pageContext.request.contextPath}/{{imageUri}}" id="profile-profile-image"/>
     <div id="profile-profile-details">
         <h1 id="profile-profile-name">{{name}}</h1>
         <h3 class="light" style="width:fit-content;">{{age}} {{location}}</h3>
@@ -188,6 +174,15 @@ not show up in search results for them</p>
             {{/liked}}
         {{/isOwnersAccount}}
 
+        {{^isOwnersAccount}}
+            {{#isFriend}}
+            <a href="javascript:" class="button sky small" data-id="{{id}}" data-action="remove" id="profile-friend-button">Unfriend</a>
+            {{/isFriend}}
+            {{^isFriend}}
+            <a href="javascript:" class="button retro small" data-id="{{id}}" data-action="invite" id="profile-friend-button">Send Friend Request</a>
+            {{/isFriend}}
+        {{/isOwnersAccount}}
+
         {{#isOwnersAccount}}
             <span style="font-size:21px; display:inline-block;"><span style="font-size:21px;" id="num-likes">{{likes}}</span> Likes</span>
         {{/isOwnersAccount}}
@@ -195,7 +190,7 @@ not show up in search results for them</p>
     </div>
 
     {{#isOwnersAccount}}
-        <a href="${pageContext.request.contextPath}/account/edit/{{id}}" class="href-dotted right-float">Edit</a>
+        <a href="${pageContext.request.contextPath}/account/edit/{{id}}" class="href-dotted right-float" style="display:block;clear:both">Edit</a>
     {{/isOwnersAccount}}
 
     <br class="clear"/>
@@ -208,8 +203,8 @@ not show up in search results for them</p>
             <br class="clear"/>
 
             <div class="profile-stat">
-                <h2 id="profile-stat-uno"></h2>
-                <span class="information">All Time</span>
+                <h2 id="profile-stat-tres"></h2>
+                <span class="information">Previous Week</span>
                 <span class="information">Visits</span>
             </div>
 
@@ -220,8 +215,8 @@ not show up in search results for them</p>
             </div>
 
             <div class="profile-stat">
-                <h2 id="profile-stat-tres"></h2>
-                <span class="information">Previous Week</span>
+                <h2 id="profile-stat-uno"></h2>
+                <span class="information">All Time</span>
                 <span class="information">Visits</span>
             </div>
 

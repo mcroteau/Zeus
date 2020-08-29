@@ -169,7 +169,7 @@
 
             <div id="profile-picture-actions-container" style="display:none;text-align:left;" data-id="${sessionScope.account.id}" class="global-shadow">
                 <a href="javascript:" id="profile-href"  class="profile-popup-action" data-id="${sessionScope.account.id}"><span class="space"></span> Profile</a>
-                <a href="javascript:" id="messages-href"  class="profile-popup-action" data-id="${sessionScope.account.id}"><span id="latest-messages-total" class="space">0</span> Unread</a>
+                <!--<a href="javascript:" id="messages-href"  class="profile-popup-action" data-id="${sessionScope.account.id}"><span id="latest-messages-total" class="space">0</span> Unread</a>-->
                 <a href="javascript:" id="invites-href"  class="profile-popup-action" data-id="${sessionScope.account.id}"><span id="invites-total" class="space">0</span> Invites</a>
                 <a href="${pageContext.request.contextPath}/signout" class="profile-popup-action" ><span class="space"></span> Logout</a>
             </div>
@@ -215,6 +215,7 @@
 
 <script>
 
+    /**
     var stompClient = null;
     var initialized = false;
 
@@ -405,11 +406,11 @@
             content.innerHTML = hyperP
         })
     }
-
+**/
 
 </script>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/Base.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/Base.js?v=<%=System.currentTimeMillis()%>"></script>
 
 
 

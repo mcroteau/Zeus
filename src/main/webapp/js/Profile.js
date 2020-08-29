@@ -625,7 +625,6 @@ var Profile = function(context){
 
 
     function renderFriends(data){
-        console.log(data.friends)
 
         var profileFriendsContainer = document.getElementById("profile-friends-container")
 
