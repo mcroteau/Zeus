@@ -70,11 +70,11 @@
         width:100%;
     }
     #search-label{
-        left:73px;
+        left:21%;
     }
     #search-box{
-        width:51%;
-        left:73px !important;
+        width:32%;
+        left:21% !important;
     }
     #navigation-container{
         right:0px;
@@ -84,6 +84,9 @@
     #content-container{
         width:100%;
         margin: 10px auto 170px auto;
+    }
+    #profile-actions-href{
+        margin-right:10px !important;
     }
 </style>
 
@@ -108,10 +111,7 @@
 
 
         <div id="search-label">Search:</div>
-
-        <div id="search-container" class="float-left" style="z-index:100">
-            <input type="text" class="search-input" id="search-box" placeholder=""/>
-        </div>
+        <input type="text" class="search-input" id="search-box" placeholder=""/>
 
         <br class="clear"/>
 
