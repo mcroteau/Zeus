@@ -125,6 +125,9 @@
     #news-feed{
         width:100%;
     }
+    #posts-fellows-fems-outer-container{
+        width:96% !important;
+    }
 </style>
 
 

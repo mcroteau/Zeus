@@ -80,7 +80,7 @@
 
 <div id="news-feed" style="height:auto;">
 
-    <h2 style="font-family:Roboto !important; margin-bottom:4px">Latest Posts</h2>
+    <h2 style="margin-left:2%;font-family:Roboto !important; margin-bottom:4px">Latest Posts</h2>
 
 	<div id="people-posted" class="information" style="display:none;font-size:13px;"><span id="latest-posts" style="color:#000 !important;"></span> <a href="javascript:" id="refresh-posts">refresh &#8635;</a>.</div>
 	<div id="new">Refresh to see new posts...</div>
@@ -94,8 +94,14 @@
 <br class="clear"/>
 
 <div id="posts-fellows-fems-outer-container" style="margin-top:26px;display:none;float:right;width:inherit;text-align:left;">
+    <h2 style="margin-left:2%;font-family:Roboto !important; margin-bottom:4px">Who's posted:</h2>
+
     <div id="posts-fellows-fems-container"></div>
 </div>
+
+<br class="clear"/>
+<div class="clear" style="margin-bottom:130px;"></div>
+
 
 
 <script type="text/html" id="notifications-template">
