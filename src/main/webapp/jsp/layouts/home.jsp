@@ -33,9 +33,9 @@
         #guest-content-right{
             float:right;
             color:#2b2b34 !important;
-            width:300px;
+            width:27%;
             padding:0px 30px 30px 30px;
-            margin-right:49px;
+            margin-right:4%;
             margin-top:14px;
             text-align:left;
             background:rgba(67, 167, 251, 1);
@@ -142,14 +142,16 @@
                 width:100%;
                 margin:0px auto 0px auto;
             }
+            #guest-content-left{
+                width:80% !important;
+                float:none !important;
+            }
             #guest-content-right{
-                float:none;
-                width:80%;
+                float:none !important;
+                width:80% !important;
                 height:100%;
                 margin:0px auto;
             }
-
-
             #get_code{
                 display:none;
             }
@@ -164,7 +166,7 @@
 
     <div id="guest-content-container">
 
-        <div id="guest-content-left" style="padding:23px 50px; width:52%;">
+        <div id="guest-content-left" style="padding:3% 5%; width:46%;">
             <span style="display:inline-block;background:#FDFE03; padding:53px;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 134" id="zeus">
                     <path d="M49 1L21 88L57 88L42 134L84 134L113 47L92 47L79 47L75 47L91 1L49 1Z" />

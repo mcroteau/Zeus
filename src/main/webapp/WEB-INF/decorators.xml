@@ -3,6 +3,9 @@
     <decorator name="authenticated" page="authenticated.jsp">
         <pattern>*</pattern>
     </decorator>
+    <decorator name="mobile" page="mobile.jsp">
+        <pattern>*/mobile</pattern>
+    </decorator>
     <decorator name="home" page="home.jsp">
         <pattern>*/uno</pattern>
         <pattern>*/signup</pattern>

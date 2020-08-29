@@ -51,10 +51,26 @@ public class StaticController extends BaseController {
 		req.getSession().removeAttribute("message");
 
 		if(device.isMobile()) {
-			return "mobile";
+			return "portal_mobile";
 		}else{
-			return "portal";
+			return "redirect:/mobile";
 		}
+	}
+
+	@RequestMapping(value="/mobile", method=RequestMethod.GET)
+	public String mobile(Device device, HttpServletRequest req){
+
+		if(!authenticated()){
+			return "redirect:/uno";
+		}
+
+		Account account = getAuthenticatedAccount();
+		if(account.isDisabled()) {
+			return "redirect:/account/edit/" + account.getId();
+		}
+
+		return "portal_mobile";
+
 	}
 
 

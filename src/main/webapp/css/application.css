@@ -3154,6 +3154,7 @@ a.information{
     }
 }
 
+/**
 @media screen and (max-width: 590px) {
     #top-outer-container{
         width:100% !important;
@@ -3331,5 +3332,8 @@ a.information{
         margin-top:3px !important;
     }
 }
+
+**/
+
 
 body.obey{}

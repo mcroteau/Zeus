@@ -1,50 +1,32 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="xyz.ioc.model.Account" %>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
 
 <!doctype html>
 <html>
 <head>
-	<title>Zeus : Like. Share. Obey!</title>
-	
+    <title>Zeus : Like. Share. Obey!</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/images/favicon.png?v=<%=System.currentTimeMillis()%>">
 
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/apexcharts/apexcharts.js"></script>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/js/lib/apexcharts/apexcharts.css"/>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/apexcharts/apexcharts.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/js/lib/apexcharts/apexcharts.css"/>
 
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/anchorme.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/anchorme.min.js"></script>
 
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/Request.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/WebForm.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/Request.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/WebForm.js"></script>
 
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/progressbar.js"></script>
 
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/js.cookies.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/mustache.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/js.cookies.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/mustache.js"></script>
 
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/application.css?v=<%=System.currentTimeMillis()%>"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/application.css?v=<%=System.currentTimeMillis()%>"/>
 
     <script type="text/javascript">
 
         var progressBar = {}
-
-        function getRandomInt(min, max) {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-        var songs = [];
-
-        var playing;
-
-        var track = 0;
-        var nextSong = 0;
-        var songDisplay = 1;
-        var musicPlayer = null;
-
 
         var req = new Request("${pageContext.request.contextPath}");
         var web = new WebForm();
@@ -70,127 +52,124 @@
 
         }
 
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
     </script>
 
-	<decorator:head />
+    <decorator:head />
 
 </head>
 <body>
 
+<style type="text/css">
+    #top-outer-container{
+        width:100%;
+    }
+    #search-label{
+        left:73px;
+    }
+    #search-box{
+        width:51%;
+        left:73px !important;
+    }
+    #navigation-container{
+        right:0px;
+        left:auto !important;
+        float:none !important;
+    }
+    #content-container{
+        width:100%;
+        margin: 10px auto 170px auto;
+    }
+</style>
 
 
-	<div id="progress-bar-top" style="display:block"></div>
+<div id="progress-bar-top" style="display:block"></div>
 
-	<div id="processing-overlay">
-	    <img src="${pageContext.request.contextPath}/images/processing-dos.gif" style="height:50px; width:50px;margin-top:200px;"/>
-	</div>
+<div id="processing-overlay">
+    <img src="${pageContext.request.contextPath}/images/processing-dos.gif" style="height:50px; width:50px;margin-top:200px;"/>
+</div>
 
-	<div id="layout-container">
+<div id="layout-container">
 
-		<div id="top-outer-container">
+    <div id="top-outer-container">
 
-            <div id="logo-container" style="position:absolute;">
-                <a href="javascript:" id="logo-logo">
-                    <svg id="zeus-logo">
-                        <use xlink:href="#zeus" />
-                    </svg>
-                    <span id="latest-feed-total" class="notifications-count" style="display:inline-block; position:absolute;bottom:3px;left:54px;">Zeus</span></a>
-            </div>
-
-			<div id="top-inner-container">
-
-                <div id="search-label">Search:</div>
-
-                <div id="search-container" class="float-left" style="z-index:100">
-                    <input type="text" class="search-input" id="search-box" placeholder=""/>
-				</div>
-
-				<br class="clear"/>
-
-                <div id="page-processing">
-	                <img src="${pageContext.request.contextPath}/images/processing-dos.gif" style="height:50px; width:50px; position:absolute; right:140px; top:3px;"/>
-                    <span class="information" id="processing-message"></span>
-                </div>
-
-			</div>
-
-            <div id="navigation-container" class="float-right">
-                <a href="javascript:" id="profile-actions-href" style="margin-right:37px;">
-                    <img src="${pageContext.request.contextPath}/${sessionScope.imageUri}" id="profile-ref-image" style="z-index:1"/>
-                    <span id="base-notifications-count">0</span>
-                </a>
-
-                <div id="profile-picture-actions-container" style="display:none;text-align:left;" data-id="${sessionScope.account.id}" class="global-shadow">
-                    <a href="javascript:" id="profile-href"  class="profile-popup-action" data-id="${sessionScope.account.id}"><span class="space"></span> Profile</a>
-                    <a href="javascript:" id="messages-href"  class="profile-popup-action" data-id="${sessionScope.account.id}"><span id="latest-messages-total" class="space">0</span> Unread</a>
-                    <a href="javascript:" id="invites-href"  class="profile-popup-action" data-id="${sessionScope.account.id}"><span id="invites-total" class="space">0</span> Invites</a>
-                    <a href="${pageContext.request.contextPath}/signout" class="profile-popup-action" ><span class="space"></span> Logout</a>
-                </div>
+        <div id="logo-container" style="position:absolute;">
+            <a href="javascript:" id="logo-logo">
+                <svg id="zeus-logo">
+                    <use xlink:href="#zeus" />
+                </svg>
+                <span id="latest-feed-total" class="notifications-count" style="display:inline-block; position:absolute;bottom:3px;left:54px;">Zeus</span></a>
+        </div>
 
 
-            </div>
+        <div id="search-label">Search:</div>
 
-		</div>
-
-		<div id="content-container">
-
-            <decorator:body />
-
-		</div>
+        <div id="search-container" class="float-left" style="z-index:100">
+            <input type="text" class="search-input" id="search-box" placeholder=""/>
+        </div>
 
         <br class="clear"/>
 
-	</div>
+        <div id="page-processing">
+            <img src="${pageContext.request.contextPath}/images/processing-dos.gif" style="height:50px; width:50px; position:absolute; right:140px; top:3px;"/>
+            <span class="information" id="processing-message"></span>
+        </div>
+
+
+        <div id="navigation-container" class="float-right">
+            <a href="javascript:" id="profile-actions-href" style="margin-right:37px;">
+                <img src="${pageContext.request.contextPath}/${sessionScope.imageUri}" id="profile-ref-image" style="z-index:1"/>
+                <span id="base-notifications-count">0</span>
+            </a>
+
+            <div id="profile-picture-actions-container" style="display:none;text-align:left;" data-id="${sessionScope.account.id}" class="global-shadow">
+                <a href="javascript:" id="profile-href"  class="profile-popup-action" data-id="${sessionScope.account.id}"><span class="space"></span> Profile</a>
+                <a href="javascript:" id="messages-href"  class="profile-popup-action" data-id="${sessionScope.account.id}"><span id="latest-messages-total" class="space">0</span> Unread</a>
+                <a href="javascript:" id="invites-href"  class="profile-popup-action" data-id="${sessionScope.account.id}"><span id="invites-total" class="space">0</span> Invites</a>
+                <a href="${pageContext.request.contextPath}/signout" class="profile-popup-action" ><span class="space"></span> Logout</a>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <div id="content-container">
+
+        <decorator:body />
+
+    </div>
 
     <br class="clear"/>
-    <br class="clear"/>
 
+</div>
 
-    <div id="chat-session-outer-wrapper" class="global-shadow">
-        <div id="chat-inner-wrapper">
-            <div id="chat-session-header-wrapper"></div>
-            <div id="chat-session"></div>
-            <form id="chat-session-frm">
-                <textarea id="chat-text" placeholder="Begin chat..." name="content"></textarea>
-            </form>
-        </div>
-    </div>
+<br class="clear"/>
 
+<p style="text-align:center;"><a href="mailto:support@zeus.social" style="color:#2b2b2c" class="href-dotted">support@zeus.social</a>
 
-    <div id="chat-launcher-popup" class="global-shadow chat-launcher" data-launched="false" >
-        <div id="chat-header">
-            <h2 id="friends-launcher" data-launched="false" class="chat-launcher">Messages</h2>
-        </div>
-        <div id="friends-wrapper-container">
-            <table id="friends-wrapper"></table>
-        </div>
-    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 134" id="zeus">
+        <path d="M49 1L21 88L57 88L42 134L84 134L113 47L92 47L79 47L75 47L91 1L49 1Z" />
+    </svg>
+</p>
 
+<style>
+    #zeus{
+        height:20px;
+        width:20px;
+    }
+</style>
 
-    <div id="site-refs" style="text-align:center;margin-top:191px;">
-        <a href="${pageContext.request.contextPath}/get_code" class="page-ref href-dotted" >Get Code</a>
-        <a href="javascript:" class="page-ref href-dotted" data-ref="about">About</a>
-        <a href="${pageContext.request.contextPath}/invite" class="href-dotted" id="invite-people">Invite</a>
-    </div>
-
-    <p style="text-align:center;"><a href="mailto:support@zeus.social" style="color:#2b2b2c" class="href-dotted">support@zeus.social</a>
-
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 134" id="zeus">
-            <path d="M49 1L21 88L57 88L42 134L84 134L113 47L92 47L79 47L75 47L91 1L49 1Z" />
-        </svg>
-    </p>
-
-    <style>
-        #zeus{
-            height:20px;
-            width:20px;
-        }
-    </style>
-
-    <div style="text-align:center;margin:20px auto 560px auto">
-        <p style="text-align: center; font-size:12px;">&copy; 2020 Zeus</p>
-        <a href="http://tomcat.apache.org/" target="_blank" class="information">Powered by<br/>Tomcat</a>
-    </div>
+<div style="text-align:center;margin:20px auto 560px auto">
+    <p style="text-align: center; font-size:12px;">&copy; 2020 Zeus</p>
+    <a href="http://tomcat.apache.org/" target="_blank" class="information">Powered by<br/>Tomcat</a>
+</div>
 
 
 
@@ -396,11 +375,11 @@
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40862316-16"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'UA-40862316-16');
+    gtag('config', 'UA-40862316-16');
 </script>
 
 </body>
