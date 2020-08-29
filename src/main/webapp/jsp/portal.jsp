@@ -25,4 +25,7 @@
     <%@ include file="/jsp/leafs/about.jsp" %>
 </div>
 
+
+<%@ include file="/jsp/leafs/templates.jsp" %>
+
 <br class="clear"/>
