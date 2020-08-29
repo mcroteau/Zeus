@@ -18,18 +18,18 @@
 </div>
 
 
-<div id="posts-postit-container">
+<div id="posts-express-it-container">
 
     <div id="post-right" style="position:relative">
 
         <a href="javascript:" class="navigation-href float-right" id="notifications-href" style="margin-top:5px;margin-bottom:9px;">N<span id="notifications-count">0</span></a>
 
-        <span id="express-it" class="information left-float" style="color:#000 !important;font-family:Roboto-Light !important;display:inline-block;vertical-align:bottom;margin-top:32px;">Write something...</span>
+        <span id="express-it-label" class="information left-float">Write something...</span>
 
         <br class="clear"/>
 
         <form modelAttribute="post" method="post" id="share-form" enctype="multipart/form-data">
-            <textarea placeholder="Music is key to happiness." id="voice" name="content"></textarea>
+            <textarea placeholder="And lightening struck..." id="voice" name="content"></textarea>
         </form>
 
         <br class="clear"/>
@@ -72,27 +72,15 @@
         <input type="button" class="post-button share-file-button" id="music-upload-button" value="Share Music" style="display:none" data-type="music" data-message="Music must be MP3"/>
         <input type="button" class="post-button share-file-button" id="video-upload-button" value="Share Video" style="display:none" data-type="video" data-message="Video must be MP4"/>
 
-
-        <br class="clear"/>
-
-    </div>
-
-    <div id="posts-fellows-fems-outer-container" style="margin-top:26px;display:none;float:right;width:inherit;text-align:left;">
-        <div id="posts-fellows-fems-container"></div>
     </div>
 
     <br class="clear" id="cleared"/>
 
-
-    <div id="advertisement-container" class="clear" style="margin-top:49px;text-align:center;">
-        <span style="font-size:11px; color:#617078; margin-bottom:11px; display:block;">Advertisements</span>
-    </div>
-
-    <br class="clear"/>
-
 </div>
 
 <div id="news-feed" style="height:auto;">
+
+    <h2 style="font-family:Roboto !important; margin-bottom:4px">Latest Posts</h2>
 
 	<div id="people-posted" class="information" style="display:none;font-size:13px;"><span id="latest-posts" style="color:#000 !important;"></span> <a href="javascript:" id="refresh-posts">refresh &#8635;</a>.</div>
 	<div id="new">Refresh to see new posts...</div>
@@ -104,6 +92,10 @@
 
 
 <br class="clear"/>
+
+<div id="posts-fellows-fems-outer-container" style="margin-top:26px;display:none;float:right;width:inherit;text-align:left;">
+    <div id="posts-fellows-fems-container"></div>
+</div>
 
 
 <script type="text/html" id="notifications-template">

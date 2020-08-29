@@ -83,10 +83,47 @@
     }
     #content-container{
         width:100%;
-        margin: 10px auto 170px auto;
+        margin: 10px auto 170px auto !important;
     }
     #profile-actions-href{
         margin-right:10px !important;
+    }
+    #notifications-href{
+        margin-right:3% !important;
+    }
+    #express-it-label{
+        color:#000 !important;
+        font-family:Roboto-Light !important;
+        display:inline-block;
+        vertical-align:bottom;
+        margin-top:32px;
+        margin-left:2%;
+    }
+    #voice{
+        width:92%;
+        margin:0px 2%;
+        padding:2%;
+        border:solid 1px #5AB2FF !important;
+    }
+    #voice:focus{
+        background:#f9f9f9;
+    }
+    .post-button{
+        right:2% !important;
+        bottom:54px;
+        width:96%;
+        border-radius:2px !important;
+        -moz-border-radius:2px !important;
+        -webkit-border-radius:2px !important;
+    }
+    #actions-container{
+        margin-right:2%;
+    }
+    .post-button:active{
+        bottom:53px;
+    }
+    #news-feed{
+        width:100%;
     }
 </style>
 
