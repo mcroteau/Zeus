@@ -43,7 +43,6 @@ public class Utilities {
 		return r.nextInt(max);
 	}
 
-
 	public String hash(String password){
 		MessageDigest md = null;
         StringBuffer passwordHashed = new StringBuffer();

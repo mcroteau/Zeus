@@ -1,5 +1,6 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
 <%@ taglib uri="http://shiro.apache.org/tags" prefix="shiro"%>
+<%@ taglib prefix="parakeet" uri="/META-INF/tags/parakeet.tld"%>
 
 <%@ page import="io.github.mcroteau.Parakeet" %>
 <%@ page import="xyz.ioc.common.BeanLookup" %>
@@ -191,20 +192,13 @@
 
         </div>
 
-        <%
-            BeanLookup beanLookup = new BeanLookup();
-            Parakeet parakeet = (Parakeet) beanLookup.get("parakeet");
-        %>
-
-        <% if(!parakeet.isAuthenticated()){%>
-
+        <parakeet:anonymous>
             <div id="guest-content-right">
                 <decorator:body />
             </div>
+        </parakeet:anonymous>
+        <parakeet:isAuthenticated>
 
-        <%}%>
-
-        <% if(parakeet.isAuthenticated()){%>
             <div style="float:right;margin:30px 30px 0px 0px;">
                 Welcome back <strong>${sessionScope.account.nameUsername}</strong> my child!
                 &nbsp;|&nbsp;
@@ -215,7 +209,7 @@
                     <a href="${pageContext.request.contextPath}/account/edit/${sessionScope.account.id}" class="href-dotted-zeus">Edit Profile<a>
             </div>
 
-        <%}%>
+        </parakeet:isAuthenticated>
 
         <br class="clear"/>
     </div>
