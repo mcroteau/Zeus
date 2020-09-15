@@ -50,7 +50,7 @@ public class ResourceController extends BaseController {
                                          @RequestParam(value="uri", required = false ) String uri){
 
         if(!authenticated())
-            return "redirect:/signin?uri=" + uri;
+            return "redirect:/uno?uri=" + uri;
 
         model.addAttribute("uri", uri);
         return "resource";

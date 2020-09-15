@@ -75,7 +75,12 @@ public class StaticController extends BaseController {
 
 
 	@RequestMapping(value="/uno", method=RequestMethod.GET)
-	public String uno(HttpServletRequest request){
+	public String uno(@RequestParam(value="uri", required = false) String uri,
+					  HttpServletRequest req){
+		if(uri != null &&
+			!uri.equals("")){
+			req.setAttribute("uri", uri);
+		}
 		return "uno";
 	}
 
