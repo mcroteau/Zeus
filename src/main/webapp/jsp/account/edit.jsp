@@ -7,19 +7,6 @@
 <%@ page import="xyz.ioc.common.BeanLookup" %>
 <%@ page import="xyz.ioc.common.Constants" %>
 
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId            : '1072193709879583',
-            autoLogAppEvents : true,
-            xfbml            : true,
-            version          : 'v8.0'
-        });
-    };
-</script>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/Request.js"></script>
-
 
 <div id="edit-account-form">
 
@@ -184,7 +171,7 @@
 
         <script>
             FB.login(function(response){
-                console.log("out")
+                console.log("in")
             });
         </script>
 

@@ -1009,6 +1009,16 @@ input[type="button"].button.light{
     border:solid 0px #FFFFFF;
 }
 
+.button.light:hover,
+input[type="button"].button.light:hover,
+input[type="reset"].button.light:hover,
+input[type="submit"].button.light:hover,
+input[type="button"].button.light:hover {
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(179,179,179,0.43) !important;
+    -moz-box-shadow: 0px 1px 3px 0px rgba(179,179,179,0.43) !important;
+    box-shadow: 0px 1px 3px 0px rgba(179,179,179,0.43) !important;
+}
+
 .button.yella:active,
 .button.light:active{
 	-webkit-box-shadow: none;

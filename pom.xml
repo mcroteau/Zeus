@@ -311,6 +311,15 @@
                     <include>create-db.sql</include>
                 </includes>
             </resource>
+			<resource>
+				<directory>src/test/resources/jetty</directory>
+				<includes>
+					<include>jetty.xml</include>
+					<include>jetty-ssl.xml</include>
+					<include>jetty-http.xml</include>
+					<include>jetty-https.xml</include>
+				</includes>
+			</resource>
         </resources>
 
 
@@ -325,6 +334,7 @@
 					<webApp>
         	            <contextPath>/b</contextPath>
         	        </webApp>
+					<jettyXml>${project.basedir}/src/test/resources/jetty.xml, ${project.basedir}/src/test/resources/jetty-http.xml, ${project.basedir}/src/test/resources/jetty-ssl.xml, ${project.basedir}/src/test/resources/jetty-https.xml</jettyXml>
         	    </configuration>
         	</plugin>
         </plugins>

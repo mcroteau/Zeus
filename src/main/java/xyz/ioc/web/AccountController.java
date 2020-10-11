@@ -902,6 +902,7 @@ public class AccountController extends BaseController {
 										  @PathVariable String id,
 										  @PathVariable String shortToken) {
 
+		Map<String, Object> data = new HashMap<String, Object>();
 		MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
 		OkHttpClient client = new OkHttpClient();
@@ -910,19 +911,23 @@ public class AccountController extends BaseController {
 				"client_id=" + facebookAppId + "&" +
 				"client_secret=" + facebookApiKey + "&" +
 				"fb_exchange_token=" + shortToken;
+
 		okhttp3.Request request = new okhttp3.Request.Builder()
 				.url(url)
 				.build();
 
 		try (okhttp3.Response response = client.newCall(request).execute()) {
+
 			JsonElement jsonEl = new JsonParser().parse(response.body().toString());
 			JsonObject jsonObj = jsonEl.getAsJsonObject();
-			
+			String token = jsonObj.get("access_token").getAsString();
+
+			System.out.println("token > " + token);
+			data.put("token", token);
+
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-
-		Map<String, Object> data = new HashMap<String, Object>();
 
     	return gson.toJson(data);
 	}
