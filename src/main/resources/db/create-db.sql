@@ -8,6 +8,7 @@ create table account (
 	password character varying(155) NOT NULL,
 	disabled boolean,
 	date_disabled bigint,
+	facebook_access_token character varying(255),
 	uuid character varying(55)
 );
 

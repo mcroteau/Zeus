@@ -270,6 +270,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>4.2.2</version>
+		</dependency>
+
+		<dependency>
 			<groupId>io.github.mcroteau</groupId>
 			<artifactId>parakeet</artifactId>
 			<version>0.2</version>

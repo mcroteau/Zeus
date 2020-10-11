@@ -8,6 +8,8 @@ public class Constants {
 	public static String PASSWORD = "password";
 	public static String ADMIN_USERNAME = "croteau.mike+admin@gmail.com";
 
+	public static String FACEBOOK_TOKEN_URI = "https://graph.facebook.com/oauth/access_token";
+
 	public static String GUEST_USERNAME = "mjackson.guest@outlook.com";
 	public static String GUEST_PASSWORD = "guest123";
 

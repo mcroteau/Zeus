@@ -1,9 +1,19 @@
 package xyz.ioc.web;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
 import org.apache.log4j.Logger;
 import org.apache.commons.io.IOUtils;
+
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
@@ -34,7 +44,6 @@ public class AccountController extends BaseController {
 	private static final Logger log = Logger.getLogger(AccountController.class);
 
 	Gson gson = new Gson();
-
 
 	@Autowired
 	private Parakeet parakeet;
@@ -68,6 +77,12 @@ public class AccountController extends BaseController {
 
 	@Autowired
 	private PhoneService phoneService;
+
+	@Value("${facebook.app.id}")
+	private String facebookAppId;
+
+	@Value("${facebook.api.key}")
+	private String facebookApiKey;
 
 
     @RequestMapping(value="/account/info", method=RequestMethod.GET)
@@ -877,5 +892,38 @@ public class AccountController extends BaseController {
 
 		model.addAttribute("message", "Account renewed.");
 		return "redirect:/account/edit/" + id;
+	}
+
+
+	@RequestMapping(value="/account/facebook_token/{id}/{shortToken}", method=RequestMethod.POST,  produces="application/json")
+	public @ResponseBody String fbToken(ModelMap model,
+										  HttpServletRequest req,
+										  final RedirectAttributes redirect,
+										  @PathVariable String id,
+										  @PathVariable String shortToken) {
+
+		MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+
+		OkHttpClient client = new OkHttpClient();
+
+		String url = Constants.FACEBOOK_TOKEN_URI + "?" +
+				"client_id=" + facebookAppId + "&" +
+				"client_secret=" + facebookApiKey + "&" +
+				"fb_exchange_token=" + shortToken;
+		okhttp3.Request request = new okhttp3.Request.Builder()
+				.url(url)
+				.build();
+
+		try (okhttp3.Response response = client.newCall(request).execute()) {
+			JsonElement jsonEl = new JsonParser().parse(response.body().toString());
+			JsonObject jsonObj = jsonEl.getAsJsonObject();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+
+		Map<String, Object> data = new HashMap<String, Object>();
+
+    	return gson.toJson(data);
 	}
 }
