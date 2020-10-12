@@ -30,7 +30,9 @@
         <fieldset>
 
             <h1 style="font-family:Roboto-Bold !important;font-size:23px;margin-bottom:20px;">Signup!</h1>
+
             <p>Create your account and begin sharing with friends &amp; family.</p>
+
             <input type="hidden" name="uri" value="${uri}"/>
 
             <input id="name" type="text" placeholder="Name" name="name" style="width:100%">
@@ -38,6 +40,13 @@
             <input id="username" type="email" placeholder="Email Address" name="username" style="width:100%;">
 
             <input id="password" type="password" placeholder="Password &#9679;&#9679;&#9679;" name="password" style="width:100%">
+
+            <p style="text-align: center;">
+                <span id="summation" class="yella" style="font-size:27px;"></span>
+                <input type="text" placeholder="" id="value" style="width:50px;"/>
+            </p>
+
+            <p class="notify" id="verdict" style="display:none"></p>
 
         </fieldset>
     </form>
@@ -55,11 +64,41 @@
 
 
 <script>
+
+
+    var processing = false
+
+    var pass = "You may proceed..."
+
     var email = document.getElementById("username")
     var password = document.getElementById("password")
     var form = document.getElementById("registration-form")
     var signupButton = document.getElementById("signup-button")
-    var processing = false
+
+    var summationP = document.getElementById("summation")
+    var summationInput = document.getElementById("value")
+    var verdictP = document.getElementById("verdict")
+
+    signupButton.setAttribute("disabled", true)
+
+    var numOne = getRandom()
+    var numTwo = getRandom()
+
+    var total = numOne + numTwo
+
+    var summationText = numOne + " + " + numTwo + " = ";
+    summationP.innerHTML = summationText
+
+    summationInput.addEventListener("input", function(event){
+        verdictP.style.display = "block"
+        if(total == summationInput.value){
+            verdictP.innerHTML = pass
+            signupButton.removeAttribute("disabled")
+        }else{
+            verdictP.style.display = "none"
+            signupButton.setAttribute("disabled", disabled)
+        }
+    })
 
     signupButton.addEventListener("click", function(event){
         event.preventDefault();
@@ -73,5 +112,12 @@
         password.value = ""
         email.value = ""
     }, 1000)
+
+
+    function getRandom(){
+        return Math.ceil(Math.random()* 20);
+    }
+
+
 
 </script>

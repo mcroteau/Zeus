@@ -7,7 +7,7 @@
 
 <html>
 <head>
-    <title>Zeus : Like. Share. Obey!</title>
+    <title>Zeus : Like. Share. Kneel. Obey!</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

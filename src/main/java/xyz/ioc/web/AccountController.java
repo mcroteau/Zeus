@@ -378,10 +378,12 @@ public class AccountController extends BaseController {
 			accountDao.saveAccountRole(savedAccount.getId(), defaultRole.getId());
 			accountDao.saveAccountPermission(savedAccount.getId(), "account:maintenance:" + savedAccount.getId());
 
+
 			String body = "<h1>Zeus</h1>"+
 					"<p>Thank you for registering! Enjoy!</p>";
 
 			emailService.send(savedAccount.getUsername(), "Successfully Registered", body);
+
 			phoneService.support("Zeus : Registration " + account.getName() + " " + account.getUsername());
 
         }catch(Exception e){
