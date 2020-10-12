@@ -5,18 +5,29 @@
 
 <html>
 <head>
-    <title>Zeus : Like. Love. Obey!</title>
+    <title>Zeus : Like. Share. Obey!</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/images/favicon.png?v=<%=System.currentTimeMillis()%>">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/application.css?v=<%=System.currentTimeMillis()%>">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/Request.js"></script>
+
 </head>
 <body>
 
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=2710991479003833&autoLogAppEvents=1" nonce="uR9hRRqp"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/Request.js"></script>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId            : '2710991479003833',
+                autoLogAppEvents : true,
+                xfbml            : true,
+                version          : 'v8.0'
+            });
+        };
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 
     <style type="text/css">
 

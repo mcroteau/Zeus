@@ -1,7 +1,9 @@
 
 var Request = function(context){
 
-    let _context = context
+    console.log("context === ", context);
+
+    var _context = context
 
     var http = function(uri, method){
 

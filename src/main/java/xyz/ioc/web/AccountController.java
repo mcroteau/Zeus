@@ -1,5 +1,6 @@
 package xyz.ioc.web;
 
+import com.github.openjson.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -34,6 +35,7 @@ import xyz.ioc.common.Constants;
 import xyz.ioc.dao.*;
 import xyz.ioc.model.*;
 import xyz.ioc.common.Utilities;
+import xyz.ioc.service.ComplimentService;
 import xyz.ioc.service.EmailService;
 import xyz.ioc.service.PhoneService;
 
@@ -78,11 +80,8 @@ public class AccountController extends BaseController {
 	@Autowired
 	private PhoneService phoneService;
 
-	@Value("${facebook.app.id}")
-	private String facebookAppId;
-
-	@Value("${facebook.api.key}")
-	private String facebookApiKey;
+	@Autowired
+	private ComplimentService compliment;
 
 
     @RequestMapping(value="/account/info", method=RequestMethod.GET)
@@ -895,7 +894,7 @@ public class AccountController extends BaseController {
 	}
 
 
-	@RequestMapping(value="/account/facebook_token/{id}/{shortToken}", method=RequestMethod.POST,  produces="application/json")
+	@RequestMapping(value="/account/facebook_token/{id}/{shortToken}", method=RequestMethod.GET,  produces="application/json")
 	public @ResponseBody String fbToken(ModelMap model,
 										  HttpServletRequest req,
 										  final RedirectAttributes redirect,
@@ -907,10 +906,16 @@ public class AccountController extends BaseController {
 
 		OkHttpClient client = new OkHttpClient();
 
+		System.out.println("facebook_app_id > " + compliment.getFacebookAppId());
+
 		String url = Constants.FACEBOOK_TOKEN_URI + "?" +
-				"client_id=" + facebookAppId + "&" +
-				"client_secret=" + facebookApiKey + "&" +
+				"grant_type=fb_exchange_token&" +
+				"client_id=" + compliment.getFacebookAppId() + "&" +
+				"client_secret=" + compliment.getFacebookApiKey() + "&" +
+				"redirect_uri=https://www.zeus.social/b/uno&" +
+				"code=EXAMPLE" +
 				"fb_exchange_token=" + shortToken;
+
 
 		okhttp3.Request request = new okhttp3.Request.Builder()
 				.url(url)
@@ -918,9 +923,10 @@ public class AccountController extends BaseController {
 
 		try (okhttp3.Response response = client.newCall(request).execute()) {
 
-			JsonElement jsonEl = new JsonParser().parse(response.body().toString());
-			JsonObject jsonObj = jsonEl.getAsJsonObject();
-			String token = jsonObj.get("access_token").getAsString();
+			String jsonData = response.body().string();
+			JSONObject jsonObj = new JSONObject(jsonData);
+			System.out.println(jsonObj.toString());
+			String token = jsonObj.getString("access_token");
 
 			System.out.println("token > " + token);
 			data.put("token", token);

@@ -160,6 +160,8 @@
             </div>
         </form>
 
+        <div id="overlay" class="shit-its-getting-a-little-ugly"></div>
+
         <div class="fb-login-button"
              data-size="large"
              data-button-type="continue_with"
@@ -168,10 +170,17 @@
              data-use-continue-as="false"
              data-width=""></div>
 
-
         <script>
-            FB.login(function(response){
-                console.log("in")
+            var overlay = document.getElementById("overlay");
+            FB.getLoginStatus(function(response) {
+                console.log(response)
+                if(response.status === "connected"){
+                    var req = new Request("");
+                    req.http("/b/account/facebook_token/${account.id}/" + response.authResponse.accessToken).then(function(resp){
+                        var json = JSON.parse(resp.responseBody)
+                        console.log(json);
+                    })
+                }
             });
         </script>
 

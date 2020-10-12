@@ -27,6 +27,7 @@
 	<bean id="emailService" class="xyz.ioc.service.EmailService"/>
 	<bean id="phoneService" class="xyz.ioc.service.PhoneService"/>
 	<bean id="stripeService" class="xyz.ioc.service.StripeService"/>
+	<bean id="complimentService" class="xyz.ioc.service.ComplimentService"/>
 	<bean id="applicationStartup" class="xyz.ioc.startup.AppInitializer"/>
 	<bean id="sessionManager" class="xyz.ioc.common.SessionManager" scope="singleton"/>
 
