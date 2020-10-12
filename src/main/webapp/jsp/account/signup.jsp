@@ -84,14 +84,14 @@
     var numOne = getRandom()
     var numTwo = getRandom()
 
-    var total = numOne + numTwo
+    var z = numOne + numTwo
 
     var summationText = numOne + " + " + numTwo + " = ";
     summationP.innerHTML = summationText
 
     summationInput.addEventListener("input", function(event){
         verdictP.style.display = "block"
-        if(total == summationInput.value){
+        if(z == summationInput.value){
             verdictP.innerHTML = pass
             signupButton.removeAttribute("disabled")
         }else{
