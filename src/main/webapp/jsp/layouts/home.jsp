@@ -175,7 +175,7 @@
             <p style="font-weight: normal; font-size:32px;font-family:Georgia !important;">Like. Share. Obey!</p>
 
     <p style="font-family:Roboto-Light;">How much is Facebook Worth? <strong>$527 billion!</strong>, That's right,
-        almost a Trillion Dollar Corporation. While I am a fan
+        almost a trillion dollars. While I am a fan
     of Harvard and the talent that it produces, there is a definitive pipeline of success.</p>
 
             <p>My name is Mike Croteau, and this is my promise as the sole developer
