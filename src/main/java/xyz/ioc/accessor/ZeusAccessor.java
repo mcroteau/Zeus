@@ -14,6 +14,7 @@ public class ZeusAccessor implements Accessor {
 
     public String getPassword(String user){
         String password = accountDao.getAccountPassword(user);
+        System.out.println("pass: " + password);
         return password;
     }
 

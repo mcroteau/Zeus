@@ -45,6 +45,7 @@ public class AuthController extends BaseController {
 
 		try{
 
+			System.out.println("user: " + account.getUsername() + " : " + account.getPassword());
 
 			if(!parakeet.login(account.getUsername(), account.getPassword())){
 				request.getSession().setAttribute("message", "Wrong username and password");
@@ -58,10 +59,12 @@ public class AuthController extends BaseController {
 
 			request.getSession().removeAttribute("message");
 
+
 			if(uri != null &&
 					!uri.equals("")) {
 				return "redirect:/resource?uri=" + uri;
 			} else {
+				System.out.println("here..." + uri);
 				return "redirect:/";
 			}
 

@@ -16,8 +16,6 @@
 
     <script data-ad-client="ca-pub-4887712095140583" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 </head>
 <body>
 

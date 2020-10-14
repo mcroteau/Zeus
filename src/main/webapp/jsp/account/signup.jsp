@@ -15,6 +15,9 @@
 
 </style>
 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
 <div id="registration-form-container" style="padding-top:20px;">
 
     <c:if test="${not empty message}">

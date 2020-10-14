@@ -67,7 +67,7 @@ public class AppInitializer implements ApplicationListener<ContextRefreshedEvent
 		
 		try{
 			Account existing = accountDao.findByUsername(Constants.ADMIN_USERNAME);
-			String password = utilities.hash(Constants.PASSWORD);
+			String password = io.github.mcroteau.resources.Constants.hash(Constants.PASSWORD);
 
 			if(existing == null){
 				Account admin = new Account();

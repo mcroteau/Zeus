@@ -40,6 +40,7 @@ public class StaticController extends BaseController {
 						 final RedirectAttributes redirect){
 
 		if(!authenticated()){
+			System.out.println("not authenticated");
 			return "redirect:/uno";
 		}
 

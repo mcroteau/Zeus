@@ -78,10 +78,8 @@
 	<session-config>
 		<tracking-mode>COOKIE</tracking-mode>
 		<cookie-config>
-			<!--<name>Parakeet</name>-->
-			<!--<secure>true</secure>-->
+			<secure>true</secure>
 		</cookie-config>
 	</session-config>
-
 
 </web-app>
