@@ -77,9 +77,11 @@
 
 	<session-config>
 		<tracking-mode>COOKIE</tracking-mode>
-		<cookie-config>
+		<!--<cookie-config>
+			<name>Parakeet</name>
 			<secure>true</secure>
-		</cookie-config>
+		</cookie-config>-->
 	</session-config>
+
 
 </web-app>

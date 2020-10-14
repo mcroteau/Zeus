@@ -44,9 +44,7 @@ public class AuthController extends BaseController {
 							   @ModelAttribute("signon") Account account){
 
 		try{
-
-			System.out.println("user: " + account.getUsername() + " : " + account.getPassword());
-
+			
 			if(!parakeet.login(account.getUsername(), account.getPassword())){
 				request.getSession().setAttribute("message", "Wrong username and password");
 				return "redirect:/";
@@ -64,7 +62,6 @@ public class AuthController extends BaseController {
 					!uri.equals("")) {
 				return "redirect:/resource?uri=" + uri;
 			} else {
-				System.out.println("here..." + uri);
 				return "redirect:/";
 			}
 
