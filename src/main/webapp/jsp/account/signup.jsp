@@ -41,12 +41,16 @@
 
             <input id="password" type="password" placeholder="Password &#9679;&#9679;&#9679;" name="password" style="width:100%">
 
+<!--
             <p style="text-align: center;">
                 <span id="summation" class="yella" style="font-size:27px;"></span>
                 <input type="text" placeholder="" id="value" style="width:50px;"/>
             </p>
 
             <p class="notify" id="verdict" style="display:none"></p>
+-->
+
+            <div class="g-recaptcha" data-sitekey="6LfOG9cZAAAAAP1MWQTtlDFju0gnvRuqKVkv13U5" style="margin-top:30px;"></div>
 
         </fieldset>
     </form>
@@ -68,13 +72,14 @@
 
     var processing = false
 
-    var pass = "You may proceed..."
+    //var pass = "You may proceed..."
 
     var email = document.getElementById("username")
     var password = document.getElementById("password")
     var form = document.getElementById("registration-form")
     var signupButton = document.getElementById("signup-button")
 
+    /**
     var summationP = document.getElementById("summation")
     var summationInput = document.getElementById("value")
     var verdictP = document.getElementById("verdict")
@@ -99,6 +104,7 @@
             signupButton.setAttribute("disabled", disabled)
         }
     })
+    **/
 
     signupButton.addEventListener("click", function(event){
         event.preventDefault();

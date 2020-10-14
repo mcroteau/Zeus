@@ -16,6 +16,8 @@
 
     <script data-ad-client="ca-pub-4887712095140583" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 <body>
 
@@ -176,7 +178,8 @@
 <%--            <img src="/b/icons/Assets.xcassets/AppIcon.appiconset/180.png" style="border:solid 1px #fff;">--%>
             <p style="font-weight: normal; font-size:32px;font-family:Georgia !important;">Like. Share. Obey!</p>
 
-    <p style="font-family:Roboto-Light;">How much is Facebook Worth? <strong>$527 billion!</strong> While I am a fan
+    <p style="font-family:Roboto-Light;">How much is Facebook Worth? <strong>$527 billion!</strong>, That's right,
+        almost a Trillion Dollar Corporation. While I am a fan
     of Harvard and the talent that it produces, there is a definitive pipeline of success.</p>
 
             <p>My name is Mike Croteau, and this is my promise as the sole developer

@@ -26,6 +26,7 @@ import xyz.ioc.model.*;
 import xyz.ioc.common.Utilities;
 import xyz.ioc.service.EmailService;
 import xyz.ioc.service.PhoneService;
+import xyz.ioc.service.ReCaptchaService;
 
 
 @Controller
@@ -68,6 +69,9 @@ public class AccountController extends BaseController {
 
 	@Autowired
 	private PhoneService phoneService;
+
+	@Autowired
+	private ReCaptchaService reCaptchaService;
 
 
     @RequestMapping(value="/account/info", method=RequestMethod.GET)
@@ -327,9 +331,17 @@ public class AccountController extends BaseController {
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	protected String register(HttpServletRequest req,
 							@ModelAttribute("account") Account account,
+							  @RequestParam(value="g-recaptcha-response", required = true ) String reCaptchaResponse,
 							  @RequestParam(value="uri", required = false ) String uri,
 							  RedirectAttributes redirect){
 
+    	System.out.println(reCaptchaResponse);
+
+		if(!reCaptchaService.validates(reCaptchaResponse)){
+			redirect.addFlashAttribute("account", account);
+			redirect.addFlashAttribute("error", "Please be a valid human... check the box?");
+			return "redirect:/signup?uri=" + uri;
+		}
 
 		if(!utilities.validEmail(account.getUsername())){
 			redirect.addFlashAttribute("account", account);
