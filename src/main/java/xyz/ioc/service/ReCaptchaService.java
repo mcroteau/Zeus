@@ -43,10 +43,7 @@ public class ReCaptchaService {
         try (Response response = client.newCall(request).execute()) {
 
             String body = response.body().string();
-            System.out.println(body);
-
             reCaptchaOutput = gson.fromJson(body, ReCaptchaOutput.class);
-            System.out.println(reCaptchaOutput.toString());
 
         }catch(Exception e){
             e.printStackTrace();

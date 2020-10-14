@@ -335,8 +335,6 @@ public class AccountController extends BaseController {
 							  @RequestParam(value="uri", required = false ) String uri,
 							  RedirectAttributes redirect){
 
-    	System.out.println(reCaptchaResponse);
-
 		if(!reCaptchaService.validates(reCaptchaResponse)){
 			redirect.addFlashAttribute("account", account);
 			redirect.addFlashAttribute("error", "Please be a valid human... check the box?");
