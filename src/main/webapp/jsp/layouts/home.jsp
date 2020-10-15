@@ -33,7 +33,6 @@
             float:right;
             color:#2b2b34 !important;
             width:27%;
-            padding:0px 30px 30px 30px;
             margin-right:4%;
             margin-top:14px;
             text-align:left;
@@ -147,13 +146,19 @@
             }
             #guest-content-right{
                 float:none !important;
-                width:80% !important;
-                height:100%;
+                width:90% !important;
                 margin:0px auto;
             }
             #get_code{
                 display:none;
             }
+
+
+            <% if(request.getServletPath().equals("/signup")){ %>
+                 #zeus-words {
+                    display:none;
+                 }
+            <%}%>
         }
 
         #zeus{
@@ -171,23 +176,30 @@
                     <path d="M49 1L21 88L57 88L42 134L84 134L113 47L92 47L79 47L75 47L91 1L49 1Z" />
                 </svg>
             </span>
-<%--            <img src="/b/icons/Assets.xcassets/AppIcon.appiconset/180.png" style="border:solid 1px #fff;">--%>
+
             <p style="font-weight: normal; font-size:32px;font-family:Georgia !important;">Like. Share. Obey!</p>
 
-    <p style="font-family:Roboto-Light;">How much is Facebook Worth? <strong>$527 billion!</strong>, That's right,
-        almost a trillion dollars. While I am a fan
-    of Harvard and the talent that it produces, there is a definitive pipeline of success.</p>
+            <div id="zeus-words">
 
-            <p>My name is Mike Croteau, and this is my promise as the sole developer
-                of Zeus, <strong>89% of what Zeus earns will go towards children without homes,
-                    and military veterans.</strong> Currently I am only accepting donations
-                on <a href="https://www.patreon.com/user?u=35004351" class="href-dotted" target="_blank">Patreon.</a></p>
+                <p style="font-family:Roboto-Light;">How much is Facebook Worth?
+                    <strong>$527 billion!</strong> That's right, almost a trillion dollars.
+                    While I am a fan of Harvard and the talent that it produces, there is a
+                    definitive pipeline of success.</p>
 
-            <p>Here is what you get as a member of Zeus, a promise that I will not sell your data,
-                a promise of 100% transparency as I offer the code for Free. You can view the source
-                code anytime by browsing to <a href="https://github.com/mcroteau/Zeus" class="href-dotted" target="_blank">https://github.com/mcroteau/Zeus</a></p>
+                <p>My name is Mike Croteau, and this is my promise as the sole developer
+                    of Zeus, <strong>89% of what Zeus earns will go towards children without homes,
+                        and military veterans.</strong> Currently I am only accepting donations
+                    on <a href="https://www.patreon.com/user?u=35004351" class="href-dotted" target="_blank">Patreon.</a></p>
 
-            <p>Why should there be one group to reign social media, when there is <strong>Zeus!</strong></p>
+                <p>Here is what you get as a member of Zeus, a promise that I will not sell your data,
+                    a promise of 100% transparency as I offer the code for Free. You can view the source
+                    code anytime by browsing to <a href="https://github.com/mcroteau/Zeus" class="href-dotted" target="_blank">https://github.com/mcroteau/Zeus</a></p>
+
+                <p>Why should there be many to rule social
+                    media when there is <strong>Zeus</strong> to reign them all.</p>
+
+            </div>
+
 
         </div>
 
@@ -204,8 +216,8 @@
                 <a href="${pageContext.request.contextPath}/signout" class="href-dotted-zeus">Signout</a>
                 <br/>
                 <br/>
-                <a href="${pageContext.request.contextPath}/" class="href-dotted-zeus">Home<a>&nbsp;|&nbsp;
-                    <a href="${pageContext.request.contextPath}/account/edit/${sessionScope.account.id}" class="href-dotted-zeus">Edit Profile<a>
+                <a href="${pageContext.request.contextPath}/" class="href-dotted-zeus">Home</a>&nbsp;|&nbsp;
+                    <a href="${pageContext.request.contextPath}/account/edit/${sessionScope.account.id}" class="href-dotted-zeus">Edit Profile</a>
             </div>
 
         </parakeet:isAuthenticated>

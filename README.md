@@ -2,7 +2,33 @@
 
 # Zeus
 
-And she conceived and bore Zeus, who delights in the thunderbolt...
+How much is Facebook Worth? $527 billion!
+That's right, almost a trillion dollars! 
+While I am a fan of Harvard and the talent 
+that it produces, there is a definitive pipeline 
+of success that needs to be addressed.
+
+My name is Mike Croteau, and this is my promise 
+as the sole developer of Zeus, 89% of what 
+Zeus earns will go towards children without homes, 
+and military veterans. If you feel the need 
+to give, give through Patreon.
+
+Here is what you get as a member of Zeus, 
+a promise that I will not sell your data, 
+a promise of 100% transparency as I offer 
+the code for Free. You can view the source 
+code anytime by browsing to 
+https://github.com/mcroteau/Zeus
+
+Why should there be many to rule social 
+media when there is Zeus to reign them all.
+
+Like. Share. Kneel. Obey!
+
+www.zeus.social
+
+If you like will you share? Thank you.
 
 This project is free to download. [![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/DAVFoundation/captain-n3m0/blob/master/LICENSE)
 

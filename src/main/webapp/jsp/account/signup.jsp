@@ -18,7 +18,7 @@
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 
-<div id="registration-form-container" style="padding-top:20px;">
+<div id="registration-form-container" style="padding-top:20px;text-align: center">
 
     <c:if test="${not empty message}">
         <div class="notify alert-info">${message}</div>
@@ -28,45 +28,50 @@
         <div class="notify alert-danger">${error}</div>
     </c:if>
 
+    <div id="registration-form" style="width:90%; margin:auto; text-align: left;">
 
-    <form action="${pageContext.request.contextPath}/register" modelAttribute="account" method="post" enctype="multipart/form-data" autocomplete="false" class="pure-form pure-form-stacked" id="registration-form">
-        <fieldset>
+        <form action="${pageContext.request.contextPath}/register" modelAttribute="account" method="post" enctype="multipart/form-data" autocomplete="false" class="pure-form pure-form-stacked" id="registration-form">
+            <fieldset>
 
-            <h1 style="font-family:Roboto-Bold !important;font-size:23px;margin-bottom:20px;">Signup!</h1>
+                <h1 style="font-family:Roboto-Bold !important;font-size:23px;margin-bottom:20px;">Signup!</h1>
 
-            <p>Create your account and begin sharing with friends &amp; family.</p>
+                <p>Create your account and begin sharing with friends &amp; family.</p>
 
-            <input type="hidden" name="uri" value="${uri}"/>
+                <input type="hidden" name="uri" value="${uri}"/>
 
-            <input id="name" type="text" placeholder="Name" name="name" style="width:100%">
+                <input id="name" type="text" placeholder="Name" name="name" style="width:100%">
 
-            <input id="username" type="email" placeholder="Email Address" name="username" style="width:100%;">
+                <input id="username" type="email" placeholder="Email Address" name="username" style="width:100%;">
 
-            <input id="password" type="password" placeholder="Password &#9679;&#9679;&#9679;" name="password" style="width:100%">
+                <input id="password" type="password" placeholder="Password &#9679;&#9679;&#9679;" name="password" style="width:100%;">
 
-<!--
-            <p style="text-align: center;">
-                <span id="summation" class="yella" style="font-size:27px;"></span>
-                <input type="text" placeholder="" id="value" style="width:50px;"/>
-            </p>
+    <!--
+                <p style="text-align: center;">
+                    <span id="summation" class="yella" style="font-size:27px;"></span>
+                    <input type="text" placeholder="" id="value" style="width:50px;"/>
+                </p>
 
-            <p class="notify" id="verdict" style="display:none"></p>
--->
+                <p class="notify" id="verdict" style="display:none"></p>
+    -->
 
-            <div class="g-recaptcha" data-sitekey="6LfOG9cZAAAAAP1MWQTtlDFju0gnvRuqKVkv13U5" style="margin-top:30px;"></div>
+                <div class="g-recaptcha" data-sitekey="6LfOG9cZAAAAAP1MWQTtlDFju0gnvRuqKVkv13U5" style="margin-top:30px;"></div>
 
-        </fieldset>
-    </form>
+            </fieldset>
+        </form>
 
 
-    <div style="margin-top:41px;text-align:right">
-        <input type="submit" class="button zeus" id="signup-button" value="Signup!" style="width:100%;"/>
+        <div style="margin-top:41px;text-align:center; width:inherit;margin-bottom:30px;">
+            <input type="submit" class="button retro" id="signup-button" value="Signup!" style="width:100%;"/>
 
-        <p style="text-align: left; margin-top:30px;">Are you already one of God's delicate flowers?</p>
+            <p style="text-align: left; margin-top:30px;">Are you already one of God's delicate flowers?</p>
 
-        <a href="${pageContext.request.contextPath}/" type="submit" class="button retro" id="signin-button">Signin!</a>
+            <a href="${pageContext.request.contextPath}/" class="button zeus" id="signin-button" style="width:100%;">Signin!</a>
+
+        </div>
+
+        <br class="clear"/>
+
     </div>
-
 </div>
 
 
