@@ -1070,5 +1070,27 @@ public class PostController extends BaseController {
 	}
 
 
+	@RequestMapping(value="/post/flag/revoke/{id}", method=RequestMethod.POST,  produces="application/json")
+	public String revokePostFlag(ModelMap model,
+								  HttpServletRequest request,
+								  final RedirectAttributes redirect,
+								  @PathVariable String id){
+		if(!administrator()){
+			return "redirect:/unauthorized";
+		}
+
+		Post post = postDao.get(Long.parseLong(id));
+		Account account = accountDao.get(post.getAccountId());
+
+		account.setDisabled(false);
+		accountDao.updateDisabled(account);
+
+		post.setFlagged(false);
+		postDao.updateFlagged(post);
+		postDao.removePostFlags(post.getId());
+
+		return "redirect:/posts/flagged";
+	}
+
 
 }

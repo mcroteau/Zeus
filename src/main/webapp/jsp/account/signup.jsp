@@ -60,7 +60,7 @@
         </form>
 
 
-        <div style="margin-top:41px;text-align:center; width:inherit;margin-bottom:30px;">
+        <div style="margin-top:41px;text-align:center; width:inherit;margin-bottom:30px; ">
             <input type="submit" class="button retro" id="signup-button" value="Signup!" style="width:100%;"/>
 
             <p style="text-align: left; margin-top:30px;">Are you already one of God's delicate flowers?</p>

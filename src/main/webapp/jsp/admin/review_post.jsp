@@ -34,6 +34,10 @@
             <input type="submit" value="Remove Post" class="button beauty-light small">
         </form>
 
+		<form action="${pageContext.request.contextPath}/post/flag/revoke/${post.id}" method="post">
+			<input type="submit" value="Revoke Flag" class="button light small">
+		</form>
+
     </div>
 </body>
 </html>

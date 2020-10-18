@@ -115,11 +115,11 @@
                     <div class="share-container float-left">
                         {{#shared}}
                         <span class="actions-count" id="shares-{{postShareId}}">{{shares}} <span class="actions-label">Shares</span></span>
-                        <a href="javascript:" class="share-shared-button" data-id="{{postShareId}}" data-post-id="{{id}}">&Delta;</a>
+                        <a href="javascript:" class="share-shared-button" data-id="{{postShareId}}" data-post-id="{{id}}">&Delta;&deg;</a>
                         {{/shared}}
                         {{^shared}}
                         <span class="actions-count" id="shares-{{id}}">{{shares}} <span class="actions-label">Shares</span></span>
-                        <a href="javascript:" class="share-button" data-id="{{id}}">&Delta;</a>
+                        <a href="javascript:" class="share-button" data-id="{{id}}">&Delta;&deg;</a>
                         {{/shared}}
                     </div>
 

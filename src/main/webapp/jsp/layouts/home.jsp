@@ -40,6 +40,8 @@
             background: linear-gradient(-31deg, rgba(67,136,251,1) 0%, rgba(67,179,251,1) 100%);
             background:rgba(255,255,255, 1);
 
+            padding:20px 30px;
+
             border-radius: 7px !important;
             -moz-border-radius: 7px !important;
             -webkit-border-radius: 7px !important;
