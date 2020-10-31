@@ -15,9 +15,9 @@ import xyz.ioc.dao.*;
 import xyz.ioc.model.*;
 
 
-public class AppInitializer implements ApplicationListener<ContextRefreshedEvent>{
+public class AppStartup implements ApplicationListener<ContextRefreshedEvent>{
 
-	private static final Logger log = Logger.getLogger(AppInitializer.class);
+	private static final Logger log = Logger.getLogger(AppStartup.class);
 
 	@Autowired
 	public RoleDao roleDao;

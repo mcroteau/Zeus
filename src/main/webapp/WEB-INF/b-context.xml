@@ -28,7 +28,7 @@
 	<bean id="phoneService" class="xyz.ioc.service.PhoneService"/>
 	<bean id="stripeService" class="xyz.ioc.service.StripeService"/>
 	<bean id="reCaptchaService" class="xyz.ioc.service.ReCaptchaService"/>
-	<bean id="applicationStartup" class="xyz.ioc.startup.AppInitializer"/>
+	<bean id="appStartup" class="xyz.ioc.startup.AppStartup"/>
 	<bean id="sessionManager" class="xyz.ioc.common.SessionManager" scope="singleton"/>
 
 	<bean id="zeusAccessor" class="xyz.ioc.accessor.ZeusAccessor"/>

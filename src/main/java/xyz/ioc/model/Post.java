@@ -64,6 +64,8 @@ public class Post {
 
 	boolean flagged;
 
+	boolean advertisment;
+
 
 	public long getId(){
 		return id;
@@ -285,6 +287,14 @@ public class Post {
 
 	public void setFlagged(boolean flagged) {
 		this.flagged = flagged;
+	}
+
+	public boolean isAdvertisment() {
+		return advertisment;
+	}
+
+	public void setAdvertisment(boolean advertisment) {
+		this.advertisment = advertisment;
 	}
 
 }
